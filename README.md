@@ -13,19 +13,33 @@ OpenCV (cv2): For image reading and saving functionalities, as well as some imag
 This library includes a variety of functions to apply different types of distortions to images. Each function accepts an image (as a NumPy array) as input and returns the distorted image. The main functions include:
 
 elastic_transform: Applies an elastic deformation to the image.
+
 twirl_distortion01 and twirl_distortion02: Apply a twirling effect to parts of the image.
+
 wave_distortion01, wave_distortion02, and wave_distortion: Create wave-like distortions across the image.
+
 pixelate_image: Pixelates a specified region or the entire image.
+
 cartesian_to_polar_image_stretched: Transforms the image from Cartesian to polar coordinates, stretching the pixels.
+
 mirror_effect: Applies a mirroring effect to a specified side of the image.
+
 tilt_shift_effect: Simulates a tilt-shift photography effect, blurring parts of the image while keeping a specific area in focus.
+
 ripple_effect: Creates a ripple effect across the image.
+
 zoom_blur: Applies a zoom blur effect from a specified point.
+
 space_distortion_v1: Distorts the space within the image in a specified direction.
+
 wind_distortion: Simulates the effect of wind on the image.
+
 squeeze_stretch_effect: Applies a squeeze and stretch effect to the image.
+
 smooth_lens_distortion: Applies a smooth lens distortion effect centered around a specified point.
+
 crystallize_distortion: Simulates a crystalline effect by averaging blocks of pixels.
+
 honeycomb_distortion: Applies a honeycomb-like distortion effect across the image.
 
 **Usage Examples**
