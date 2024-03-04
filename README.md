@@ -5,7 +5,7 @@ Cite this library: [![DOI](https://zenodo.org/badge/767201088.svg)](https://zeno
 
 **Overview**
 
-This Python library provides a collection of functions to apply various distortion effects to images. These effects range from simple pixelation and mirroring to more complex transformations like elastic and wave distortions, enabling creative alterations of images for artistic or experimental purposes. The library leverages NumPy for efficient array manipulations, ensuring high performance even for large images.
+This Python library provides a collection of functions to apply various distortion effects to images. These effects range from simple pixelation and mirroring to more complex transformations like elastic and wave distortions, enabling creative alterations of images for artistic or research purposes. The library leverages NumPy for efficient array manipulations, ensuring high performance even for large images.
 
 **Dependencies**
 
