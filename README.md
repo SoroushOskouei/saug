@@ -1,5 +1,5 @@
-# saug (Space Augmentation)
-Space distortions for image augmentations
+# saug (Spatial Augmentation)
+Spatial distortions for image augmentations
 
 
 **Overview**
