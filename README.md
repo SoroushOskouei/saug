@@ -3,13 +3,16 @@ Space distortions for image augmentations
 
 
 **Overview**
+
 This Python library provides a collection of functions to apply various distortion effects to images. These effects range from simple pixelation and mirroring to more complex transformations like elastic and wave distortions, enabling creative alterations of images for artistic or experimental purposes. The library leverages NumPy for efficient array manipulations, ensuring high performance even for large images.
 
 **Dependencies**
+
 NumPy: For array operations and mathematical functions.
 OpenCV (cv2): For image reading and saving functionalities, as well as some image processing tasks.
 
 **Functions**
+
 This library includes a variety of functions to apply different types of distortions to images. Each function accepts an image (as a NumPy array) as input and returns the distorted image. The main functions include:
 
 elastic_transform: Applies an elastic deformation to the image.
