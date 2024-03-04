@@ -1,4 +1,4 @@
-# saug
+# saug (Space Augmentation)
 Space distortions for image augmentations
 
 
