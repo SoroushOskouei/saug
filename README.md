@@ -1,6 +1,7 @@
 # saug (Spatial Augmentation)
 Spatial distortions for image augmentations
 
+Cite this library: [![DOI](https://zenodo.org/badge/767201088.svg)](https://zenodo.org/doi/10.5281/zenodo.10780397)
 
 **Overview**
 
