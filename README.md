@@ -97,8 +97,10 @@ distorted_chessboard = smooth_lens_distortion(chessboard, 200, 200, 150, 1.3)
 ![image](https://github.com/SoroushOskouei/saug/assets/57323986/fff13976-7d36-470d-aad1-e70e67a71e4b)
 
 distorted_chessboard = crystallize_distortion(chessboard, crystal_size=27)
+
 ![image](https://github.com/SoroushOskouei/saug/assets/57323986/d91b43df-e198-46ea-adee-f9d093f8438a)
 
 distorted_chessboard = honeycomb_distortion(chessboard)
+
 ![image](https://github.com/SoroushOskouei/saug/assets/57323986/8dcafd5f-b272-4f8a-aa47-3b93b07e9efd)
 
