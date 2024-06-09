@@ -3,6 +3,8 @@ Spatial distortions for image augmentations
 
 Cite this library: [![DOI](https://zenodo.org/badge/767201088.svg)](https://zenodo.org/doi/10.5281/zenodo.10780397)
 
+Harvard citation: Soroush Oskouei (2024) “SoroushOskouei/saug: saug”. Zenodo. doi: 10.5281/zenodo.10780398.
+
 **Overview**
 
 This Python library provides a collection of functions to apply various distortion effects to images. These effects range from simple pixelation and mirroring to more complex transformations like elastic and wave distortions, enabling creative alterations of images for artistic or research purposes. The library leverages NumPy for efficient array manipulations, ensuring high performance even for large images.
