@@ -9,7 +9,7 @@ and
 
 [![DOI](https://zenodo.org/badge/767201088.svg)](https://zenodo.org/doi/10.5281/zenodo.10780397)  ||  Harvard citation: Soroush Oskouei (2024) “SoroushOskouei/saug: saug”. Zenodo. doi: 10.5281/zenodo.10780398.
 
-## Include both citations!
+**Include both citations!**
 
 
 **Overview**
