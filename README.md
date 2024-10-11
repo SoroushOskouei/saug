@@ -58,7 +58,8 @@ honeycomb_distortion: Applies a honeycomb-like distortion effect across the imag
 Below are examples demonstrating how to use some of the functions provided in this library. These examples use a chessboard image as the input, but you can replace it with any image of your choice.
 
 distorted_chessboard = multi_lens_distortion(chessboard, num_lenses=8, radius_range=[120, 190], strength_range=[-0.2, 0.7]):
-![image](https://github.com/user-attachments/assets/36ab67b4-6e4d-45de-bf56-f1510b00427e)
+
+![image](https://github.com/user-attachments/assets/af6489b6-2fa2-4cc4-a3f2-a4c36e04fb6d)
 
 distorted_chessboard = elastic_transform(chessboard, 90, 7)
 
@@ -131,4 +132,15 @@ distorted_chessboard = crystallize_distortion(chessboard, crystal_size=27)
 distorted_chessboard = honeycomb_distortion(chessboard)
 
 ![image](https://github.com/SoroushOskouei/saug/assets/57323986/8dcafd5f-b272-4f8a-aa47-3b93b07e9efd)
+
+distorted_chessboard = moving_blur(chessboard, 2,0.4, 3)
+
+![image](https://github.com/user-attachments/assets/751f7ba1-ba3f-4a3f-8256-50db24076011)
+
+distorted_chessboard = warp_bubbles_effect(chessboard, [(170, 170)], 149, 3)
+
+![image](https://github.com/user-attachments/assets/449495ca-19fe-466f-90ce-4ccca53abc29)
+
+
+
 
