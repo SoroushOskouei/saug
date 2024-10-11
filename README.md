@@ -1,7 +1,11 @@
 # saug (Spatial Augmentation)
 Spatial distortions for image augmentations
 
-Cite this library: [![DOI](https://zenodo.org/badge/767201088.svg)](https://zenodo.org/doi/10.5281/zenodo.10780397)
+Cite this library: 
+Oskouei, S., Valla, M., Pedersen, A., Smistad, E., Dale, V.G., Høibø, M., Wahl, S.G.F., Haugum, M.D., Langø, T., Ramnefjell, M.P. and Akslen, L.A., 2024. Segmentation of Non-Small Cell Lung Carcinomas: Introducing DRU-Net and Multi-Lens Distortion. arXiv preprint arXiv:2406.14287.
+and
+[![DOI](https://zenodo.org/badge/767201088.svg)](https://zenodo.org/doi/10.5281/zenodo.10780397)
+
 
 Harvard citation: Soroush Oskouei (2024) “SoroushOskouei/saug: saug”. Zenodo. doi: 10.5281/zenodo.10780398.
 
