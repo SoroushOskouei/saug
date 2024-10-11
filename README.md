@@ -25,6 +25,8 @@ OpenCV (cv2): For image reading and saving functionalities, as well as some imag
 
 This library includes a variety of functions to apply different types of distortions to images. Each function accepts an image (as a NumPy array) as input and returns the distorted image. The main functions include:
 
+multi_lens_distortion: Applies several lens distortion effects on various positions.
+
 elastic_transform: Applies an elastic deformation to the image.
 
 twirl_distortion01 and twirl_distortion02: Apply a twirling effect to parts of the image.
@@ -54,6 +56,10 @@ smooth_lens_distortion: Applies a smooth lens distortion effect centered around 
 crystallize_distortion: Simulates a crystalline effect by averaging blocks of pixels.
 
 honeycomb_distortion: Applies a honeycomb-like distortion effect across the image.
+
+moving_blur: Applies a moving blur effect on the whole image with specified direction and intensity.
+
+warp_bubbles_effect: Creates a warp-like effect around a specified position.
 
 **Usage Examples**
 Below are examples demonstrating how to use some of the functions provided in this library. These examples use a chessboard image as the input, but you can replace it with any image of your choice.
