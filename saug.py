@@ -814,3 +814,81 @@ def honeycomb_distortion(image):
 
     return distorted_image
 
+
+
+def moving_blur(image, num_echoes, alpha_step, offset_step):
+    '''
+    Applies a "Moving Blur" effect to an input image with customizable parameters.
+
+    Parameters:
+        image (np.ndarray): The input image as a NumPy array of shape (H, W, C) where H is height,
+                            W is width, and C is the number of channels (typically 3 for RGB).
+        num_echoes (int): Number of echoes to apply.
+        alpha_step (float): Step decrease in alpha for each echo. Determines the transparency of each echo.
+        offset_step (int): Pixel offset for each echo. Determines how far each echo is staggered from the original.
+
+    Returns:
+        np.ndarray: The output image with the "Moving Blur" effect applied.
+    '''
+
+    # Ensure working on a copy of the image to preserve the original
+    output_image = np.copy(image)
+
+    # Loop over the echoes
+    for i in range(1, num_echoes + 1):
+        alpha = 1 - (i * alpha_step)  # Calculate the alpha (transparency) for this echo
+        offset = i * offset_step  # Calculate the pixel offset for this echo
+
+        # Create the staggered duplicate with the offset
+        echo = np.zeros_like(output_image)
+        if offset < output_image.shape[0] and offset < output_image.shape[1]:
+            # Apply the offset only if it is within the image dimensions
+            echo[offset:, offset:, :] = output_image[:-offset, :-offset, :]  # Offset the echo
+
+            # Blend the echo back into the output image with the calculated alpha
+            output_image = np.clip((1 - alpha) * output_image + alpha * echo, 0, 255).astype(np.uint8)
+
+    return output_image
+
+
+def warp_bubbles_effect(image, centers, radius, intensity):
+    '''
+    Applies a "warp bubbles" effect to an image.
+
+    Parameters:
+    - image: np.ndarray. The original image as a NumPy array of shape (H, W, C).
+    - centers: list of tuples. Each tuple contains the (x, y) coordinates of the center of a bubble.
+    - radius: int. The radius of the bubbles.
+    - intensity: float. The intensity of the distortion effect.
+
+    Returns:
+    - np.ndarray. The image with the "warp bubbles" effect applied.
+    '''
+
+    # Ensure we work on a copy of the image to not alter the original
+    output_image = np.copy(image)
+    height, width = image.shape[:2]
+
+    for center in centers:
+        for y in range(height):
+            for x in range(width):
+                # Calculate the distance from the current pixel to the center of the bubble
+                distance = np.sqrt((x - center[0])**2 + (y - center[1])**2)
+
+                if distance < radius:
+                    # Calculate the displacement based on the distance and intensity
+                    displacement = (1 - distance / radius) ** 2 * intensity
+
+                    # Calculate the source pixel position based on the displacement
+                    source_x = int(x + displacement * (x - center[0]))
+                    source_y = int(y + displacement * (y - center[1]))
+
+                    # Clamp the source position to be within the image bounds
+                    source_x = np.clip(source_x, 0, width - 1)
+                    source_y = np.clip(source_y, 0, height - 1)
+
+                    # Apply the displacement
+                    output_image[y, x] = image[source_y, source_x]
+
+    return output_image
+
