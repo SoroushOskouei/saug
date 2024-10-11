@@ -57,6 +57,8 @@ honeycomb_distortion: Applies a honeycomb-like distortion effect across the imag
 **Usage Examples**
 Below are examples demonstrating how to use some of the functions provided in this library. These examples use a chessboard image as the input, but you can replace it with any image of your choice.
 
+distorted_chessboard = multi_lens_distortion(chessboard, num_lenses=8, radius_range=[120, 190], strength_range=[-0.2, 0.7]):
+![image](https://github.com/user-attachments/assets/36ab67b4-6e4d-45de-bf56-f1510b00427e)
 
 distorted_chessboard = elastic_transform(chessboard, 90, 7)
 
