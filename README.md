@@ -3,7 +3,12 @@ Spatial distortions for image augmentations
 
 ## Cite this library: 
 
-Oskouei, S., Valla, M., Pedersen, A., Smistad, E., Dale, V.G., Høibø, M., Wahl, S.G.F., Haugum, M.D., Langø, T., Ramnefjell, M.P. and Akslen, L.A., 2024. Segmentation of Non-Small Cell Lung Carcinomas: Introducing DRU-Net and Multi-Lens Distortion. arXiv preprint arXiv:2406.14287.
+@article{oskouei2024segmentation,
+  title={Segmentation of Non-Small Cell Lung Carcinomas: Introducing DRU-Net and Multi-Lens Distortion},
+  author={Oskouei, Soroush and Valla, Marit and Pedersen, Andr{\'e} and Smistad, Erik and Dale, Vibeke Grotnes and H{\o}ib{\o}, Maren and Wahl, Sissel Gyrid Freim and Haugum, Mats Dehli and Lang{\o}, Thomas and Ramnefjell, Maria Paula and others},
+  journal={arXiv preprint arXiv:2406.14287},
+  year={2024}
+}
 
 and
 
