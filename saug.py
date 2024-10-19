@@ -1,6 +1,81 @@
 import numpy as np
 import cv2
 
+def apply_perspective_transform(image, interpolation='none'):
+    """
+    Applies a perspective transformation to an image, with options for different interpolation methods.
+    
+    This function generates a random perspective transformation and applies it to the provided image.
+    The transformation maps the corners of the image to new locations based on random perturbations,
+    simulating a 3D perspective change. The new image is created by mapping pixels from the original
+    image to their new locations according to the transformation matrix.
+
+    The transformation is applied differently based on the interpolation parameter:
+    - 'none': No interpolation is used. Pixels are directly mapped from the source to the target
+              positions. If a target position does not correspond directly to a source position,
+              it is left unfilled, resulting in black areas in the output image.
+    - 'full': Nearest neighbor interpolation. Every pixel in the output image is filled. If a
+              target pixel's corresponding source pixel is out of bounds, it is filled with the
+              nearest valid pixel's value. This ensures there are no black areas in the output.
+    - 'inner': Similar to 'full', but only pixels that map directly to valid source positions are
+               filled. If a transformed pixel position falls outside the source image, it remains
+               black. This method fills the image without extrapolating the transformation beyond
+               the original image boundaries.
+
+    Parameters:
+    - image (numpy.ndarray): The input image to transform.
+    - interpolation (str): The type of interpolation to use ('none', 'full', 'inner').
+
+    Returns:
+    - numpy.ndarray: The transformed image with the specified type of interpolation applied.
+    """
+    h, w = image.shape[:2]
+    src = np.array([[0, 0], [w - 1, 0], [w - 1, h - 1], [0, h - 1]], dtype=np.float32)
+    perturbation = np.random.uniform(-w/4, w/4, (4, 2))
+    dst = src + perturbation
+    matrix = compute_perspective_transform(src, dst)
+    
+    # Create an empty image to place the transformed pixels
+    warped_image = np.zeros_like(image)
+
+    if interpolation == 'none':
+        # Direct transformation without filling the gaps
+        for y in range(h):
+            for x in range(w):
+                trans_coords = np.array([x, y, 1])
+                src_coords = matrix @ trans_coords
+                tx, ty, tz = src_coords / src_coords[2]
+                if 0 <= int(ty) < h and 0 <= int(tx) < w:
+                    warped_image[int(ty), int(tx)] = image[y, x]
+
+    elif interpolation == 'full' or interpolation == 'inner':
+        inv_matrix = np.linalg.inv(matrix)
+        for y in range(h):
+            for x in range(w):
+                src_coords = inv_matrix @ np.array([x, y, 1])
+                src_x, src_y, src_z = src_coords / src_coords[2]
+
+                src_x, src_y = int(src_x), int(src_y)
+                if 0 <= src_y < h and 0 <= src_x < w:
+                    warped_image[y, x] = image[src_y, src_x]
+                elif interpolation == 'full':
+                    nearest_x, nearest_y = min(max(src_x, 0), w - 1), min(max(src_y, 0), h - 1)
+                    warped_image[y, x] = image[nearest_y, nearest_x]
+
+    return warped_image
+
+def compute_perspective_transform(src, dst):
+    A = np.zeros((8, 9))
+    for i in range(4):
+        x, y = src[i]
+        X, Y = dst[i]
+        A[2 * i] = [x, y, 1, 0, 0, 0, -X*x, -X*y, -X]
+        A[2 * i + 1] = [0, 0, 0, x, y, 1, -Y*x, -Y*y, -Y]
+    B = dst.reshape(8)
+    params = np.linalg.solve(A[:, :-1], B)
+    params = np.append(params, 1)
+    return params.reshape(3, 3)
+
 
 def multi_lens_distortion(image, num_lenses, radius_range, strength_range):
     """
